@@ -25,6 +25,11 @@ jobs:
             - name: Install dependancies
               run: npm install
 
+            - name: create a env file
+              run: |
+                echo "APP=${{ vars.APP }} >> .env.developemenT
+                echo "PORT=${{ vars.PORT }} >> .env.development
+
             - name: run application
               run: |
                  node server.js
