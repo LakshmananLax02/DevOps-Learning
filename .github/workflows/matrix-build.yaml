@@ -27,8 +27,8 @@ jobs:
 
             - name: create a env file
               run: |
-                echo "APP=${{ vars.APP }} >> .env.developemenT
-                echo "PORT=${{ vars.PORT }} >> .env.development
+                echo "APP=${{ vars.APP }}" >> .env.developemenT
+                echo "PORT=${{ vars.PORT }}" >> .env.development
 
             - name: run application
               run: |
