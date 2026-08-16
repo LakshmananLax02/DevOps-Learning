@@ -12,6 +12,7 @@ on:
 jobs:
   node:
     runs-on: [self-hosted, wsl-ubuntu]
+    environment: dev
 
     steps:
       - name: Checkout code
