@@ -1,0 +1,13 @@
+name: My first pipeline
+
+on:
+ push:
+  branches: ["main"]
+
+jobs:
+  firstpipeline:
+   runs-on: ubuntu-latest
+
+  steps:
+   - name: My first pipeling
+     run: echo "My first pipeline"
