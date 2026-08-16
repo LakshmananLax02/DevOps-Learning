@@ -1,43 +1,44 @@
 name: My node basic pipeline
 
 on:
- push:
-  branches: ["main"]
- pull_request:
-  branches: ["main"] 
- workflow_dispatch:  
+  push:
+    branches: ["main"]
+
+  pull_request:
+    branches: ["main"]
+
+  workflow_dispatch:
 
 jobs:
   node:
-   runs-on: [self-hosted, wsl-ubuntu]
+    runs-on: [self-hosted, wsl-ubuntu]
 
-   steps:
-    - name: checkout code
-      uses: actions/checkout@v7
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
 
-    - name: Setup Node
-      uses: actions/setup-node@v7
-      with:
-        node-version: 24
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
 
-    - name: intall packages
-      run: npm install
+      - name: Install packages
+        run: npm install
 
-    - name: Create env file
-      run: |
-        echo "App=${{vars.APP}}" >> .env.development
-        echo "PORT=${{vars.PORT}}" >> .env.development
-        ls
-        cat .env.development
+      - name: Create env file
+        run: |
+          echo "App=${{ vars.APP }}" >> .env
+          echo "PORT=${{ vars.PORT }}" >> .env
 
-    - name: Run the application
-      run: |
-        node server.js &
-        sleep 5
-        curl http://localhost:3000
-        curl http://localhost:3000/health
-        pkill -f "node server.js"
-        
-       
+          echo "Environment file created:"
+          cat .env
 
+      - name: Run application
+        run: |
+          node --env-file=.env server.js &
+          sleep 5
 
+          curl --fail http://localhost:3000
+          curl --fail http://localhost:3000/health
+
+          pkill -f "node --env-file=.env server.js"
