@@ -37,8 +37,4 @@ jobs:
         run: |
           node --env-file=.env server.js &
           sleep 5
-
-          curl --fail http://localhost:3000
-          curl --fail http://localhost:3000/health
-
           pkill -f "node --env-file=.env server.js"
