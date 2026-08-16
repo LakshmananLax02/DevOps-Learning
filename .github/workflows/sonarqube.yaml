@@ -17,9 +17,9 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v7
         with:
           args: >
-            -Dsonar.projectKey=NodeApplication 
-            -Dsonar.sources=. 
+            -Dsonar.projectKey=NodeApplication
+            -Dsonar.sources=.
             -Dsonar.qualitygate.wait=true
-        env: 
-           S0NAR_TOKEN: ${{ secrets.S0NAR_TOKEN }}
-           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
