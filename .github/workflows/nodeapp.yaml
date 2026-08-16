@@ -25,12 +25,12 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Create env file
+      - name: Debug variables
         run: |
-          echo "APP=${{ vars.APP }}" >> .env.development
-          echo "PORT=${{ vars.PORT }}" >> .env.development
+          echo "APP=[${{ vars.APP }}]"
+          echo "PORT=[${{ vars.PORT }}]"
 
-          echo "Environment file created:"
+          echo "----- ENV FILE -----"
           cat .env.development
 
       - name: Run application
