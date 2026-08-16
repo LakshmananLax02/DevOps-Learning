@@ -27,6 +27,8 @@ jobs:
       run: |
         echo "App=${{vars.DEV_NODE_APP}}" >> .env.development
         echo "PORT=${{vars.PORT}}" >> .env.development
+        ls
+        cat .env.development
 
     - name: Run the application
       run: |
