@@ -17,7 +17,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v7
         with:
           args: >
-            sonar-scanner \
             -Dsonar.projectKey=NodeApplication \
             -Dsonar.sources=. \
             -Dsonar.host.url=http://localhost:8000 \
