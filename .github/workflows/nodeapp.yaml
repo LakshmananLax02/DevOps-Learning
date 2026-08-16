@@ -31,10 +31,10 @@ jobs:
           echo "PORT=${{ vars.PORT }}" >> .env.development
 
           echo "Environment file created:"
-          cat .env
+          cat .env.development
 
       - name: Run application
         run: |
-          node --env-file=.env server.js &
+          node --env-file=.env.development server.js &
           sleep 5
-          pkill -f "node --env-file=.env server.js"
+          pkill -f "node --env-file=.env.development server.js"
