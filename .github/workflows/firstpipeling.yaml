@@ -11,3 +11,10 @@ jobs:
    steps:
     - name: My first pipeling
       run: echo "My first pipeline"
+
+  deploy:
+    runs-on: [self-hosted, wsl-ubuntu]
+
+    steps: 
+     - name: my second job
+       run: echo "My second job"
