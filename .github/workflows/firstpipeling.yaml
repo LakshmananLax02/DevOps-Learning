@@ -8,6 +8,6 @@ jobs:
   firstpipeline:
    runs-on: ubuntu-latest
 
-  steps:
+   steps:
     - name: My first pipeling
       run: echo "My first pipeline"
