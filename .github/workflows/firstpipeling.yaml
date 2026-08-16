@@ -6,7 +6,7 @@ on:
 
 jobs:
   firstpipeline:
-   runs-on: ubuntu-latest
+   runs-on: [self-hosted, wsl-ubuntu]
 
    steps:
     - name: My first pipeling
