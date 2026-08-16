@@ -24,10 +24,10 @@ jobs:
         run: |
           docker build \
             -t ${{ vars.DOCKERHUB_USERNAME }}/nodeapplication:${GITHUB_SHA::7} \
-            -t ${{ vars.DOCKERHUB_USERNAME }}/nodeapplication:latest \
+            -t ${{ vars.DOCKERHUB_USERNAME }}/nodeapplication \
             .
 
       - name: Push Docker image
         run: |
           docker push ${{ vars.DOCKERHUB_USERNAME }}/nodeapplication:${GITHUB_SHA::7}
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/nodeapplication:latest
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/nodeapplication
