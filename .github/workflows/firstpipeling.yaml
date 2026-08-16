@@ -5,7 +5,7 @@ on:
   branches: ["main"]
 
 jobs:
-  firstpipeline:
+  build:
    runs-on: [self-hosted, wsl-ubuntu]
 
    steps:
@@ -13,6 +13,7 @@ jobs:
       run: echo "My first pipeline"
 
   deploy:
+    needs: build
     runs-on: [self-hosted, wsl-ubuntu]
 
     steps: 
