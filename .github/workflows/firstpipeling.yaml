@@ -9,5 +9,5 @@ jobs:
    runs-on: ubuntu-latest
 
   steps:
-   - name: My first pipeling
-     run: echo "My first pipeline"
+    - name: My first pipeling
+      run: echo "My first pipeline"
